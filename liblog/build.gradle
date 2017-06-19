@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 25
@@ -23,6 +25,51 @@ android {
         }
 
     }
+}
+
+group = 'bcaiado-logger-test-group'
+version = '1.3.0'
+
+
+bintray {
+    user = 'bcaiado'
+    key = '43bf446db8b17deb757a2fd2f98dc51e5d7e5ccd'
+    pkg {
+        repo = 'bcaiado-logger-test'
+        name = 'bcaiado-logger-test'
+
+        version {
+            name = '1.3.0'
+            desc = 'My test upload'
+            released  = new Date()
+            vcsTag = '1.0.0'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/bcaiado09/testloggerr.git'
+    }
+    configurations = ['archives']
+}
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath()
+            .join(File.pathSeparator))
+}
+
+task generateJavadocsJar(type: Jar) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+artifacts {
+    archives generateJavadocsJar
+    archives generateSourcesJar
 }
 
 dependencies {

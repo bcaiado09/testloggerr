@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyLibraryProjectTest.iml" filepath="$PROJECT_DIR$/MyLibraryProjectTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/liblog/liblog.iml" filepath="$PROJECT_DIR$/liblog/liblog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testloggerr.iml" filepath="$PROJECT_DIR$/testloggerr.iml" />
     </modules>
   </component>
 </project>

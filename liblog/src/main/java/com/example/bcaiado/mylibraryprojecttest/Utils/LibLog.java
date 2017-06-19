@@ -11,6 +11,11 @@ public class LibLog {
     private static final boolean LIVE = !BuildConfig.RELEASE_MODE;
     private static final String _tag = "wwq";
 
+    /**
+     * Log in debug
+     * @param tag Custom tag
+     * @param msg Custom message
+     */
     public static void d(String tag, String msg) {
         if (LIVE) {
             android.util.Log.d(tag, msg);
